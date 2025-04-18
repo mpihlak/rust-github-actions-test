@@ -18,3 +18,15 @@ jobs:
       run: cargo build --verbose
     - name: Run tests
       run: cargo test --verbose
+    - name: Obtain current version
+      id: obtain_version
+      run: |
+        version=$(cargo run -- --version)
+        echo "version::v${version}"
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.obtain_version.outputs.version }}
+        release_name: Release ${{ steps.obtain_version.outputs.version }}

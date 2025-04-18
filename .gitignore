@@ -1,0 +1,16 @@
+/target
+testing/data
+testing/log
+tmp/*
+**/*.rs.bk
+TODO.txt
+*.sw[op]
+docker-build.sh
+.DS_Store
+.vscode/*
+*.log
+*.pyc
+*/__pycache__/*
+x
+tags
+testing/node-mongo

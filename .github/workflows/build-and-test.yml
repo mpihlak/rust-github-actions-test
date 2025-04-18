@@ -22,7 +22,7 @@ jobs:
       id: obtain_version
       run: |
         version=$(cargo run -- --version)
-        echo "::set-output name=version::v${version}"
+        echo "version=v${version}" >> $GITHUB_OUTPUT
     - name: Create Release
       uses: actions/create-release@v1
       env:
